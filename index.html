@@ -4,66 +4,1954 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Milestone Timeline</title>
+
 <style>
-:root{--bg:#f7f7f8;--card:#fff;--text:#17181b;--muted:#6b7280;--border:#e5e7eb;--accent:#2563eb;--red:#ef4444;--blue:#3b82f6;--green:#22c55e;--amber:#f59e0b;--purple:#a855f7;--cyan:#06b6d4}
-*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,sans-serif;background:var(--bg);color:var(--text)}
-main{max-width:1200px;margin:auto;padding:28px 18px 50px}.top{display:flex;justify-content:space-between;gap:16px;align-items:end;flex-wrap:wrap;margin-bottom:18px}h1{margin:0;font-size:28px}h2{margin:0 0 10px;font-size:18px}.muted{color:var(--muted);font-size:13px}
-.card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:16px;margin:14px 0}.filters{display:grid;grid-template-columns:1fr 1fr;gap:14px}.chips{display:flex;flex-wrap:wrap;gap:7px}.chip{border:1px solid var(--border);background:white;border-radius:999px;padding:7px 11px;cursor:pointer}.chip.active{background:#eef4ff;border-color:var(--accent)}
-.timeline-scroll{overflow-x:auto}.timeline{min-width:900px}.axis{height:42px;display:flex;border-bottom:1px solid var(--border)}.month{flex:1;text-align:center;font-size:12px;color:var(--muted);padding:10px 2px}.track{height:390px;position:relative;border-bottom:2px solid var(--border);background:repeating-linear-gradient(to right,transparent 0,transparent calc(12.5% - 1px),var(--border) calc(12.5% - 1px),var(--border) 12.5%)}
-.event{position:absolute;transform:translateX(-50%);width:150px;text-align:center;cursor:pointer}.event .label{font-weight:650;font-size:12px;line-height:1.2;position:absolute;left:7px;bottom:25px;transform:rotate(-45deg);transform-origin:bottom left;width:155px;text-align:left;white-space:normal}.event .date{font-size:10px;color:var(--muted);margin-top:3px}.event .stem{width:2px;height:32px;background:currentColor;opacity:.45;margin:0 auto}.event .dot{width:15px;height:15px;border-radius:50%;background:currentColor;border:3px solid white;box-shadow:0 0 0 1px currentColor;margin:auto}.event.high .dot{width:20px;height:20px}.event.low{opacity:.7}
-.form{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr 1fr auto auto;gap:8px;align-items:end}.input{width:100%;min-height:40px;border:1px solid var(--border);border-radius:9px;padding:8px 10px;background:white;font:inherit}.btn{min-height:40px;border:0;border-radius:9px;padding:8px 14px;background:var(--accent);color:white;font-weight:650;cursor:pointer}.btn.secondary{background:white;color:var(--text);border:1px solid var(--border)}.btn.danger{background:var(--red)}
-table{width:100%;border-collapse:collapse;font-size:13px}th,td{padding:9px 7px;border-bottom:1px solid var(--border);text-align:left;vertical-align:top}.action{border:0;background:transparent;text-decoration:underline;cursor:pointer;padding:3px}.pill{display:inline-block;border-radius:999px;padding:3px 8px;font-size:11px}.detail{display:grid;grid-template-columns:1fr 1fr;gap:12px}.detailbox{border:1px solid var(--border);border-radius:10px;padding:12px}.toolbar{display:flex;gap:8px;flex-wrap:wrap}.status{padding:8px 10px;border-radius:9px;background:#f3f4f6;font-size:12px}
-@media(max-width:800px){.filters,.detail{grid-template-columns:1fr}.form{grid-template-columns:1fr 1fr}.wide{grid-column:span 2}.form .btn{grid-column:span 1}}
+:root{
+  --bg:#f7f7f8;
+  --card:#fff;
+  --text:#17181b;
+  --muted:#6b7280;
+  --border:#e5e7eb;
+  --accent:#2563eb;
+  --red:#ef4444;
+  --blue:#3b82f6;
+  --green:#22c55e;
+  --amber:#f59e0b;
+  --purple:#a855f7;
+  --cyan:#06b6d4;
+}
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  font-family:system-ui,-apple-system,Segoe UI,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+}
+
+main{
+  max-width:1200px;
+  margin:auto;
+  padding:28px 18px 50px;
+}
+
+.top{
+  display:flex;
+  justify-content:space-between;
+  gap:16px;
+  align-items:end;
+  flex-wrap:wrap;
+  margin-bottom:18px;
+}
+
+h1{
+  margin:0;
+  font-size:28px;
+}
+
+h2{
+  margin:0 0 10px;
+  font-size:18px;
+}
+
+.muted{
+  color:var(--muted);
+  font-size:13px;
+}
+
+.card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:16px;
+  margin:14px 0;
+}
+
+.filters{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+}
+
+.chips{
+  display:flex;
+  flex-wrap:wrap;
+  gap:7px;
+}
+
+.chip{
+  border:1px solid var(--border);
+  background:white;
+  border-radius:999px;
+  padding:7px 11px;
+  cursor:pointer;
+}
+
+.chip.active{
+  background:#eef4ff;
+  border-color:var(--accent);
+}
+
+.timeline-scroll{
+  overflow-x:auto;
+}
+
+.timeline{
+  min-width:900px;
+}
+
+.axis{
+  height:42px;
+  display:flex;
+  border-bottom:1px solid var(--border);
+}
+
+.month{
+  flex:1;
+  text-align:center;
+  font-size:12px;
+  color:var(--muted);
+  padding:10px 2px;
+}
+
+.track{
+  height:410px;
+  position:relative;
+  border-bottom:2px solid var(--border);
+
+  background:
+    repeating-linear-gradient(
+      to right,
+      transparent 0,
+      transparent calc(12.5% - 1px),
+      var(--border) calc(12.5% - 1px),
+      var(--border) 12.5%
+    );
+}
+
+/* Individual milestone */
+
+.event{
+  position:absolute;
+  transform:translateX(-50%);
+  width:150px;
+  text-align:center;
+  cursor:pointer;
+}
+
+/*
+  The milestone title is rotated 45 degrees.
+  The bottom-right of the title is anchored
+  at the top of the pointer.
+*/
+.event .label{
+  position:absolute;
+
+  left:50%;
+  bottom:58px;
+
+  width:180px;
+
+  transform:translateX(-100%) rotate(-45deg);
+  transform-origin:bottom right;
+
+  font-weight:650;
+  font-size:12px;
+  line-height:1.2;
+
+  text-align:right;
+  white-space:normal;
+}
+
+/* Pointer from title to dot */
+
+.event .stem{
+  width:2px;
+  height:32px;
+  background:currentColor;
+  opacity:.45;
+  margin:0 auto;
+}
+
+/* Timeline dot */
+
+.event .dot{
+  width:15px;
+  height:15px;
+  border-radius:50%;
+  background:currentColor;
+
+  border:3px solid white;
+
+  box-shadow:
+    0 0 0 1px currentColor;
+
+  margin:auto;
+}
+
+/* High importance = larger dot */
+
+.event.high .dot{
+  width:20px;
+  height:20px;
+}
+
+/* Low importance = slightly faded */
+
+.event.low{
+  opacity:.7;
+}
+
+/* Date below dot */
+
+.event .date{
+  font-size:10px;
+  color:var(--muted);
+  margin-top:8px;
+  white-space:nowrap;
+}
+
+
+/* Forms */
+
+.form{
+  display:grid;
+  grid-template-columns:
+    1.5fr
+    1fr
+    1fr
+    1fr
+    1fr
+    auto
+    auto;
+
+  gap:8px;
+  align-items:end;
+}
+
+.input{
+  width:100%;
+  min-height:40px;
+
+  border:1px solid var(--border);
+  border-radius:9px;
+
+  padding:8px 10px;
+
+  background:white;
+
+  font:inherit;
+}
+
+.btn{
+  min-height:40px;
+
+  border:0;
+  border-radius:9px;
+
+  padding:8px 14px;
+
+  background:var(--accent);
+  color:white;
+
+  font-weight:650;
+
+  cursor:pointer;
+}
+
+.btn.secondary{
+  background:white;
+  color:var(--text);
+  border:1px solid var(--border);
+}
+
+.btn.danger{
+  background:var(--red);
+}
+
+
+/* Table */
+
+table{
+  width:100%;
+  border-collapse:collapse;
+  font-size:13px;
+}
+
+th,
+td{
+  padding:9px 7px;
+  border-bottom:1px solid var(--border);
+
+  text-align:left;
+  vertical-align:top;
+}
+
+.action{
+  border:0;
+  background:transparent;
+  text-decoration:underline;
+
+  cursor:pointer;
+
+  padding:3px;
+}
+
+.pill{
+  display:inline-block;
+
+  border-radius:999px;
+
+  padding:3px 8px;
+
+  font-size:11px;
+}
+
+
+/* Detail panel */
+
+.detail{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+
+  gap:12px;
+}
+
+.detailbox{
+  border:1px solid var(--border);
+  border-radius:10px;
+
+  padding:12px;
+}
+
+.toolbar{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+}
+
+.status{
+  padding:8px 10px;
+
+  border-radius:9px;
+
+  background:#f3f4f6;
+
+  font-size:12px;
+}
+
+
+/* Mobile */
+
+@media(max-width:800px){
+
+  .filters,
+  .detail{
+    grid-template-columns:1fr;
+  }
+
+  .form{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .wide{
+    grid-column:span 2;
+  }
+
+  .form .btn{
+    grid-column:span 1;
+  }
+
+}
 </style>
 </head>
+
+
 <body>
+
 <main id="app">
-<div class="top"><div><h1>Milestone Timeline</h1><div class="muted" id="summary"></div></div><div class="toolbar"><button class="btn secondary" id="resetData">Reset imported data</button><button class="btn secondary" id="exportData">Export JSON</button></div></div>
 
-<div class="filters">
-<section class="card"><h2>Milestone type</h2><div id="typeFilters" class="chips"></div></section>
-<section class="card"><h2>Importance</h2><div id="levelFilters" class="chips"></div></section>
-</div>
+  <div class="top">
 
-<section class="card"><div class="top" style="margin-bottom:8px"><div><h2>Timeline</h2><div class="muted">Click any milestone to inspect or edit it.</div></div><div id="legend" class="muted"></div></div><div class="timeline-scroll"><div class="timeline"><div id="axis" class="axis"></div><div id="track" class="track"></div></div></div></section>
+    <div>
+      <h1>Milestone Timeline</h1>
+      <div class="muted" id="summary"></div>
+    </div>
 
-<section class="card" id="detailCard" hidden><div class="top"><h2>Milestone details</h2><button class="btn secondary" id="closeDetail">Close</button></div><div id="detail" class="detail"></div></section>
+    <div class="toolbar">
 
-<section class="card"><h2 id="formTitle">Add milestone</h2><form id="form" class="form">
-<input type="hidden" id="editId">
-<div class="wide"><label class="muted">Title</label><input id="title" class="input" required></div>
-<div><label class="muted">Date</label><input id="date" type="date" class="input"></div>
-<div><label class="muted">Type</label><select id="type" class="input"></select></div>
-<div><label class="muted">Importance</label><select id="level" class="input"><option value="">Unassigned</option><option>High</option><option>Medium</option><option>Low</option></select></div>
-<div><label class="muted">Owner</label><input id="owner" class="input"></div>
-<button class="btn" id="save">Add</button><button type="button" class="btn secondary" id="cancel" hidden>Cancel</button>
-</form><div class="muted" style="margin-top:8px">The imported Excel milestones start with importance unassigned.</div></section>
+      <button
+        class="btn secondary"
+        id="resetData">
+        Reset imported data
+      </button>
 
-<section class="card"><div class="top"><h2>Milestone list</h2><span id="count" class="status"></span></div><div class="timeline-scroll"><table><thead><tr><th>Date</th><th>Title</th><th>Type</th><th>Importance</th><th>Owner</th><th>Actions</th></tr></thead><tbody id="list"></tbody></table></div></section>
+      <button
+        class="btn secondary"
+        id="exportData">
+        Export JSON
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <!-- FILTERS -->
+
+  <div class="filters">
+
+    <section class="card">
+
+      <h2>Milestone type</h2>
+
+      <div
+        id="typeFilters"
+        class="chips">
+      </div>
+
+    </section>
+
+
+    <section class="card">
+
+      <h2>Importance</h2>
+
+      <div
+        id="levelFilters"
+        class="chips">
+      </div>
+
+    </section>
+
+  </div>
+
+
+  <!-- TIMELINE -->
+
+  <section class="card">
+
+    <div
+      class="top"
+      style="margin-bottom:8px">
+
+      <div>
+
+        <h2>Timeline</h2>
+
+        <div class="muted">
+          Click any milestone to inspect or edit it.
+        </div>
+
+      </div>
+
+      <div
+        id="legend"
+        class="muted">
+      </div>
+
+    </div>
+
+
+    <div class="timeline-scroll">
+
+      <div class="timeline">
+
+        <div
+          id="axis"
+          class="axis">
+        </div>
+
+        <div
+          id="track"
+          class="track">
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- DETAIL -->
+
+  <section
+    class="card"
+    id="detailCard"
+    hidden>
+
+    <div class="top">
+
+      <h2>Milestone details</h2>
+
+      <button
+        class="btn secondary"
+        id="closeDetail">
+        Close
+      </button>
+
+    </div>
+
+    <div
+      id="detail"
+      class="detail">
+    </div>
+
+  </section>
+
+
+  <!-- ADD / EDIT -->
+
+  <section class="card">
+
+    <h2 id="formTitle">
+      Add milestone
+    </h2>
+
+
+    <form
+      id="form"
+      class="form">
+
+      <input
+        type="hidden"
+        id="editId">
+
+
+      <div class="wide">
+
+        <label class="muted">
+          Title
+        </label>
+
+        <input
+          id="title"
+          class="input"
+          required>
+
+      </div>
+
+
+      <div>
+
+        <label class="muted">
+          Date
+        </label>
+
+        <input
+          id="date"
+          type="date"
+          class="input">
+
+      </div>
+
+
+      <div>
+
+        <label class="muted">
+          Type
+        </label>
+
+        <select
+          id="type"
+          class="input">
+        </select>
+
+      </div>
+
+
+      <div>
+
+        <label class="muted">
+          Importance
+        </label>
+
+        <select
+          id="level"
+          class="input">
+
+          <option value="">
+            Unassigned
+          </option>
+
+          <option>
+            High
+          </option>
+
+          <option>
+            Medium
+          </option>
+
+          <option>
+            Low
+          </option>
+
+        </select>
+
+      </div>
+
+
+      <div>
+
+        <label class="muted">
+          Owner
+        </label>
+
+        <input
+          id="owner"
+          class="input">
+
+      </div>
+
+
+      <button
+        class="btn"
+        id="save">
+        Add
+      </button>
+
+
+      <button
+        type="button"
+        class="btn secondary"
+        id="cancel"
+        hidden>
+
+        Cancel
+
+      </button>
+
+    </form>
+
+
+    <div
+      class="muted"
+      style="margin-top:8px">
+
+      The imported Excel milestones start with importance unassigned.
+
+    </div>
+
+  </section>
+
+
+  <!-- MILESTONE TABLE -->
+
+  <section class="card">
+
+    <div class="top">
+
+      <h2>
+        Milestone list
+      </h2>
+
+      <span
+        id="count"
+        class="status">
+      </span>
+
+    </div>
+
+
+    <div class="timeline-scroll">
+
+      <table>
+
+        <thead>
+
+          <tr>
+
+            <th>Date</th>
+            <th>Title</th>
+            <th>Type</th>
+            <th>Importance</th>
+            <th>Owner</th>
+            <th>Actions</th>
+
+          </tr>
+
+        </thead>
+
+
+        <tbody
+          id="list">
+        </tbody>
+
+      </table>
+
+    </div>
+
+  </section>
+
 </main>
-<script>
-const TYPES=[["LEG","var(--blue)"],["ADM","var(--green)"],["STRAT","var(--amber)"],["TECH","var(--purple)"],["BD","var(--red)"],["OPS","var(--cyan)"]];
-const LEVELS=["High","Medium","Low",""];
-const color=t=>TYPES.find(x=>x[0]===t)?.[1]||"var(--blue)";
-const fmt=d=>d?new Intl.DateTimeFormat("en-IE",{day:"numeric",month:"short",year:"numeric",timeZone:"UTC"}).format(new Date(d+"T00:00:00Z")):"Undated";
-let data=[], activeTypes=new Set(TYPES.map(x=>x[0])), activeLevels=new Set(LEVELS), nextId=29;
 
-async function load(){try{const saved=localStorage.getItem("milestoneData");if(saved)data=JSON.parse(saved);else{const r=await fetch("milestones.json");data=await r.json()}}catch(e){data=[]}nextId=Math.max(0,...data.map(x=>x.id))+1;render()}
-function persist(){localStorage.setItem("milestoneData",JSON.stringify(data))}
-function filters(){let a=document.getElementById("typeFilters");a.innerHTML="";TYPES.forEach(([t])=>{let b=document.createElement("button");b.type="button";b.className="chip"+(activeTypes.has(t)?" active":"");b.textContent=t;b.onclick=()=>{activeTypes.has(t)?activeTypes.delete(t):activeTypes.add(t);render()};a.appendChild(b)});a=document.getElementById("levelFilters");a.innerHTML="";LEVELS.forEach(l=>{let b=document.createElement("button");b.type="button";b.className="chip"+(activeLevels.has(l)?" active":"");b.textContent=l||"Unassigned";b.onclick=()=>{activeLevels.has(l)?activeLevels.delete(l):activeLevels.add(l);render()};a.appendChild(b)})}
-function shown(){return data.filter(x=>activeTypes.has(x.type)&&activeLevels.has(x.level)).sort((a,b)=>(a.date||"9999").localeCompare(b.date||"9999"))}
-function timeline(items){let dated=data.filter(x=>x.date),axis=document.getElementById("axis"),track=document.getElementById("track");axis.innerHTML="";track.innerHTML="";if(!dated.length){track.innerHTML="<div class='muted' style='padding:25px'>No dated milestones.</div>";return}let ts=dated.map(x=>Date.parse(x.date+"T00:00:00Z")),min=Math.min(...ts)-604800000,max=Math.max(...ts)+604800000,range=max-min,start=new Date(min),end=new Date(max);start.setUTCDate(1);end.setUTCDate(1);let months=[],m=new Date(Date.UTC(start.getUTCFullYear(),start.getUTCMonth(),1));while(m<=end&&months.length<12){months.push(new Date(m));m.setUTCMonth(m.getUTCMonth()+1)}months.forEach(x=>{let e=document.createElement("div");e.className="month";e.textContent=new Intl.DateTimeFormat("en-IE",{month:"short",year:"numeric",timeZone:"UTC"}).format(x);axis.appendChild(e)});items.filter(x=>x.date).forEach((x,i)=>{let pct=(Date.parse(x.date+"T00:00:00Z")-min)/range*100,e=document.createElement("div");e.className="event "+(x.level==="High"?"high ":"")+(x.level==="Low"?"low":"");e.style.left=pct+"%";e.style.top=(i%2?220:55)+"px";e.style.color=color(x.type);e.innerHTML=`<div class="label">${escapeHtml(x.title)}</div><div class="date">${fmt(x.date)}</div><div class="stem"></div><div class="dot"></div>`;e.onclick=()=>showDetail(x);track.appendChild(e)})}
-function showDetail(x){document.getElementById("detailCard").hidden=false;document.getElementById("detail").innerHTML=`<div class="detailbox"><div class="muted">Milestone</div><strong>${escapeHtml(x.title)}</strong><div class="muted">${fmt(x.date)}</div></div><div class="detailbox"><span class="pill" style="background:${color(x.type)}22;color:${color(x.type)}">${x.type}</span> <span class="pill">${x.level||"Unassigned"}</span><div class="muted" style="margin-top:8px">Owner: <strong>${escapeHtml(x.owner||"—")}</strong></div></div><div class="detailbox" style="grid-column:1/-1"><div class="muted">Description</div>${escapeHtml(x.description||"No description provided.")}</div>`}
-function edit(id){let x=data.find(z=>z.id===id);if(!x)return;for(const k of ["title","date","type","level","owner"])document.getElementById(k).value=x[k]||"";document.getElementById("editId").value=x.id;document.getElementById("formTitle").textContent="Edit milestone";document.getElementById("save").textContent="Save changes";document.getElementById("cancel").hidden=false;window.scrollTo({top:document.getElementById("form").offsetTop-20,behavior:"smooth"})}
-function resetForm(){document.getElementById("form").reset();document.getElementById("editId").value="";document.getElementById("formTitle").textContent="Add milestone";document.getElementById("save").textContent="Add";document.getElementById("cancel").hidden=true}
-function render(){filters();let items=shown();document.getElementById("summary").textContent=`${items.length} shown · ${data.length} total · ${data.filter(x=>!x.date).length} undated`;document.getElementById("count").textContent=`${items.length} shown`;document.getElementById("legend").textContent=TYPES.map(x=>x[0]).join(" · ");let list=document.getElementById("list");list.innerHTML=items.map(x=>`<tr><td>${fmt(x.date)}</td><td><button class="action" data-edit="${x.id}"><strong>${escapeHtml(x.title)}</strong></button></td><td><span class="pill" style="background:${color(x.type)}22;color:${color(x.type)}">${x.type}</span></td><td>${x.level||"Unassigned"}</td><td>${escapeHtml(x.owner||"—")}</td><td><button class="action" data-edit="${x.id}">Edit</button><button class="action" data-del="${x.id}">Delete</button></td></tr>`).join("")||"<tr><td colspan='6' class='muted'>No milestones match the filters.</td></tr>";list.querySelectorAll("[data-edit]").forEach(b=>b.onclick=()=>edit(Number(b.dataset.edit)));list.querySelectorAll("[data-del]").forEach(b=>b.onclick=()=>{if(confirm("Delete this milestone?")){data=data.filter(x=>x.id!==Number(b.dataset.del));persist();render()}});timeline(items)}
-function escapeHtml(s){return String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
-document.getElementById("form").onsubmit=e=>{e.preventDefault();let id=Number(document.getElementById("editId").value);let obj={id:id||nextId++,title:title.value.trim(),date:date.value,type:type.value,level:level.value,owner:owner.value.trim(),description:id?(data.find(x=>x.id===id)?.description||""):""};if(id){let i=data.findIndex(x=>x.id===id);data[i]=obj}else data.push(obj);persist();resetForm();render()};
-document.getElementById("cancel").onclick=resetForm;document.getElementById("closeDetail").onclick=()=>document.getElementById("detailCard").hidden=true;
-document.getElementById("resetData").onclick=async()=>{if(confirm("Reset all local changes and restore the imported Excel data?")){localStorage.removeItem("milestoneData");await load()}};
-document.getElementById("exportData").onclick=()=>{let blob=new Blob([JSON.stringify(data,null,2)],{type:"application/json"}),a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="milestones.json";a.click();URL.revokeObjectURL(a.href)};
-document.getElementById("type").innerHTML=TYPES.map(x=>`<option>${x[0]}</option>`).join("");
+
+<script>
+
+const TYPES = [
+
+  ["LEG","var(--blue)"],
+  ["ADM","var(--green)"],
+  ["STRAT","var(--amber)"],
+  ["TECH","var(--purple)"],
+  ["BD","var(--red)"],
+  ["OPS","var(--cyan)"]
+
+];
+
+
+const LEVELS = [
+  "High",
+  "Medium",
+  "Low",
+  ""
+];
+
+
+const color = type => {
+
+  return TYPES.find(
+    x => x[0] === type
+  )?.[1] || "var(--blue)";
+
+};
+
+
+const fmt = date => {
+
+  if(!date)
+    return "Undated";
+
+  return new Intl.DateTimeFormat(
+    "en-IE",
+    {
+      day:"numeric",
+      month:"short",
+      year:"numeric",
+      timeZone:"UTC"
+    }
+  ).format(
+    new Date(date+"T00:00:00Z")
+  );
+
+};
+
+
+let data = [];
+
+let activeTypes =
+  new Set(
+    TYPES.map(x => x[0])
+  );
+
+let activeLevels =
+  new Set(LEVELS);
+
+let nextId = 29;
+
+
+/* LOAD DATA */
+
+async function load(){
+
+  try{
+
+    const saved =
+      localStorage.getItem(
+        "milestoneData"
+      );
+
+    if(saved){
+
+      data =
+        JSON.parse(saved);
+
+    }else{
+
+      const response =
+        await fetch(
+          "milestones.json"
+        );
+
+      data =
+        await response.json();
+
+    }
+
+  }catch(error){
+
+    data = [];
+
+  }
+
+
+  nextId =
+    Math.max(
+      0,
+      ...data.map(
+        x => x.id
+      )
+    ) + 1;
+
+
+  render();
+
+}
+
+
+/* SAVE DATA */
+
+function persist(){
+
+  localStorage.setItem(
+    "milestoneData",
+    JSON.stringify(data)
+  );
+
+}
+
+
+/* FILTER BUTTONS */
+
+function filters(){
+
+  let container =
+    document.getElementById(
+      "typeFilters"
+    );
+
+  container.innerHTML = "";
+
+
+  TYPES.forEach(
+    ([type]) => {
+
+      const button =
+        document.createElement(
+          "button"
+        );
+
+      button.type = "button";
+
+      button.className =
+        "chip" +
+        (
+          activeTypes.has(type)
+            ? " active"
+            : ""
+        );
+
+      button.textContent =
+        type;
+
+
+      button.onclick = () => {
+
+        if(
+          activeTypes.has(type)
+        ){
+
+          activeTypes.delete(type);
+
+        }else{
+
+          activeTypes.add(type);
+
+        }
+
+        render();
+
+      };
+
+
+      container.appendChild(
+        button
+      );
+
+    }
+  );
+
+
+  container =
+    document.getElementById(
+      "levelFilters"
+    );
+
+  container.innerHTML = "";
+
+
+  LEVELS.forEach(
+    level => {
+
+      const button =
+        document.createElement(
+          "button"
+        );
+
+      button.type = "button";
+
+      button.className =
+        "chip" +
+        (
+          activeLevels.has(level)
+            ? " active"
+            : ""
+        );
+
+
+      button.textContent =
+        level || "Unassigned";
+
+
+      button.onclick = () => {
+
+        if(
+          activeLevels.has(level)
+        ){
+
+          activeLevels.delete(level);
+
+        }else{
+
+          activeLevels.add(level);
+
+        }
+
+        render();
+
+      };
+
+
+      container.appendChild(
+        button
+      );
+
+    }
+  );
+
+}
+
+
+/* FILTERED DATA */
+
+function shown(){
+
+  return data
+    .filter(
+      milestone =>
+        activeTypes.has(
+          milestone.type
+        )
+        &&
+        activeLevels.has(
+          milestone.level
+        )
+    )
+    .sort(
+      (a,b) =>
+        (
+          a.date || "9999"
+        ).localeCompare(
+          b.date || "9999"
+        )
+    );
+
+}
+
+
+/* TIMELINE */
+
+function timeline(items){
+
+  const dated =
+    data.filter(
+      x => x.date
+    );
+
+
+  const axis =
+    document.getElementById(
+      "axis"
+    );
+
+  const track =
+    document.getElementById(
+      "track"
+    );
+
+
+  axis.innerHTML = "";
+  track.innerHTML = "";
+
+
+  if(!dated.length){
+
+    track.innerHTML =
+      "<div class='muted' style='padding:25px'>No dated milestones.</div>";
+
+    return;
+
+  }
+
+
+  const timestamps =
+    dated.map(
+      x =>
+        Date.parse(
+          x.date +
+          "T00:00:00Z"
+        )
+    );
+
+
+  const min =
+    Math.min(...timestamps)
+    -
+    604800000;
+
+
+  const max =
+    Math.max(...timestamps)
+    +
+    604800000;
+
+
+  const range =
+    max - min;
+
+
+  /*
+    MONTH AXIS
+  */
+
+  const start =
+    new Date(min);
+
+  const end =
+    new Date(max);
+
+
+  start.setUTCDate(1);
+  end.setUTCDate(1);
+
+
+  const months = [];
+
+  let month =
+    new Date(
+      Date.UTC(
+        start.getUTCFullYear(),
+        start.getUTCMonth(),
+        1
+      )
+    );
+
+
+  while(
+    month <= end &&
+    months.length < 12
+  ){
+
+    months.push(
+      new Date(month)
+    );
+
+    month.setUTCMonth(
+      month.getUTCMonth() + 1
+    );
+
+  }
+
+
+  months.forEach(
+    month => {
+
+      const element =
+        document.createElement(
+          "div"
+        );
+
+      element.className =
+        "month";
+
+
+      element.textContent =
+        new Intl.DateTimeFormat(
+          "en-IE",
+          {
+            month:"short",
+            year:"numeric",
+            timeZone:"UTC"
+          }
+        ).format(month);
+
+
+      axis.appendChild(
+        element
+      );
+
+    }
+  );
+
+
+  /*
+    MILESTONES
+  */
+
+  items
+    .filter(
+      x => x.date
+    )
+    .forEach(
+      (milestone,index) => {
+
+        const percentage =
+          (
+            Date.parse(
+              milestone.date +
+              "T00:00:00Z"
+            )
+            -
+            min
+          )
+          /
+          range
+          *
+          100;
+
+
+        const event =
+          document.createElement(
+            "div"
+          );
+
+
+        event.className =
+          "event " +
+
+          (
+            milestone.level === "High"
+              ? "high "
+              : ""
+          ) +
+
+          (
+            milestone.level === "Low"
+              ? "low"
+              : ""
+          );
+
+
+        event.style.left =
+          percentage + "%";
+
+
+        /*
+          Alternate milestone
+          heights to reduce overlap.
+        */
+
+        event.style.top =
+          (
+            index % 2
+              ? 235
+              : 75
+          ) + "px";
+
+
+        event.style.color =
+          color(
+            milestone.type
+          );
+
+
+        /*
+          IMPORTANT:
+
+          Order is now:
+
+          NAME
+             ↓
+          POINTER
+             ↓
+          DOT
+             ↓
+          DATE
+        */
+
+        event.innerHTML = `
+
+          <div class="label">
+            ${escapeHtml(
+              milestone.title
+            )}
+          </div>
+
+          <div class="stem"></div>
+
+          <div class="dot"></div>
+
+          <div class="date">
+            ${fmt(
+              milestone.date
+            )}
+          </div>
+
+        `;
+
+
+        event.onclick =
+          () =>
+            showDetail(
+              milestone
+            );
+
+
+        track.appendChild(
+          event
+        );
+
+      }
+    );
+
+}
+
+
+/* DETAIL PANEL */
+
+function showDetail(
+  milestone
+){
+
+  document
+    .getElementById(
+      "detailCard"
+    )
+    .hidden = false;
+
+
+  document
+    .getElementById(
+      "detail"
+    )
+    .innerHTML = `
+
+      <div class="detailbox">
+
+        <div class="muted">
+          Milestone
+        </div>
+
+        <strong>
+          ${escapeHtml(
+            milestone.title
+          )}
+        </strong>
+
+        <div class="muted">
+          ${fmt(
+            milestone.date
+          )}
+        </div>
+
+      </div>
+
+
+      <div class="detailbox">
+
+        <span
+          class="pill"
+          style="
+            background:
+              ${color(
+                milestone.type
+              )}22;
+
+            color:
+              ${color(
+                milestone.type
+              )}
+          "
+        >
+
+          ${milestone.type}
+
+        </span>
+
+
+        <span class="pill">
+
+          ${
+            milestone.level ||
+            "Unassigned"
+          }
+
+        </span>
+
+
+        <div
+          class="muted"
+          style="margin-top:8px"
+        >
+
+          Owner:
+
+          <strong>
+            ${
+              escapeHtml(
+                milestone.owner ||
+                "—"
+              )
+            }
+          </strong>
+
+        </div>
+
+      </div>
+
+
+      <div
+        class="detailbox"
+        style="grid-column:1/-1"
+      >
+
+        <div class="muted">
+          Description
+        </div>
+
+        ${
+          escapeHtml(
+            milestone.description ||
+            "No description provided."
+          )
+        }
+
+      </div>
+
+    `;
+
+}
+
+
+/* EDIT */
+
+function edit(id){
+
+  const milestone =
+    data.find(
+      x => x.id === id
+    );
+
+
+  if(!milestone)
+    return;
+
+
+  document
+    .getElementById(
+      "title"
+    ).value =
+      milestone.title || "";
+
+
+  document
+    .getElementById(
+      "date"
+    ).value =
+      milestone.date || "";
+
+
+  document
+    .getElementById(
+      "type"
+    ).value =
+      milestone.type || "";
+
+
+  document
+    .getElementById(
+      "level"
+    ).value =
+      milestone.level || "";
+
+
+  document
+    .getElementById(
+      "owner"
+    ).value =
+      milestone.owner || "";
+
+
+  document
+    .getElementById(
+      "editId"
+    ).value =
+      milestone.id;
+
+
+  document
+    .getElementById(
+      "formTitle"
+    ).textContent =
+      "Edit milestone";
+
+
+  document
+    .getElementById(
+      "save"
+    ).textContent =
+      "Save changes";
+
+
+  document
+    .getElementById(
+      "cancel"
+    ).hidden = false;
+
+
+  window.scrollTo({
+    top:
+      document
+        .getElementById(
+          "form"
+        )
+        .offsetTop - 20,
+
+    behavior:"smooth"
+  });
+
+}
+
+
+/* RESET FORM */
+
+function resetForm(){
+
+  document
+    .getElementById(
+      "form"
+    )
+    .reset();
+
+
+  document
+    .getElementById(
+      "editId"
+    )
+    .value = "";
+
+
+  document
+    .getElementById(
+      "formTitle"
+    )
+    .textContent =
+      "Add milestone";
+
+
+  document
+    .getElementById(
+      "save"
+    )
+    .textContent =
+      "Add";
+
+
+  document
+    .getElementById(
+      "cancel"
+    )
+    .hidden = true;
+
+}
+
+
+/* RENDER */
+
+function render(){
+
+  filters();
+
+
+  const items =
+    shown();
+
+
+  document
+    .getElementById(
+      "summary"
+    )
+    .textContent =
+      `${items.length} shown · ${data.length} total · ${data.filter(x => !x.date).length} undated`;
+
+
+  document
+    .getElementById(
+      "count"
+    )
+    .textContent =
+      `${items.length} shown`;
+
+
+  document
+    .getElementById(
+      "legend"
+    )
+    .textContent =
+      TYPES
+        .map(
+          x => x[0]
+        )
+        .join(" · ");
+
+
+  const list =
+    document.getElementById(
+      "list"
+    );
+
+
+  list.innerHTML =
+    items
+      .map(
+        milestone => `
+
+          <tr>
+
+            <td>
+              ${fmt(
+                milestone.date
+              )}
+            </td>
+
+
+            <td>
+
+              <button
+                class="action"
+                data-edit="${milestone.id}"
+              >
+
+                <strong>
+                  ${escapeHtml(
+                    milestone.title
+                  )}
+                </strong>
+
+              </button>
+
+            </td>
+
+
+            <td>
+
+              <span
+                class="pill"
+                style="
+                  background:
+                    ${color(
+                      milestone.type
+                    )}22;
+
+                  color:
+                    ${color(
+                      milestone.type
+                    )}
+                "
+              >
+
+                ${milestone.type}
+
+              </span>
+
+            </td>
+
+
+            <td>
+
+              ${
+                milestone.level ||
+                "Unassigned"
+              }
+
+            </td>
+
+
+            <td>
+
+              ${
+                escapeHtml(
+                  milestone.owner ||
+                  "—"
+                )
+              }
+
+            </td>
+
+
+            <td>
+
+              <button
+                class="action"
+                data-edit="${milestone.id}"
+              >
+                Edit
+              </button>
+
+
+              <button
+                class="action"
+                data-del="${milestone.id}"
+              >
+                Delete
+              </button>
+
+            </td>
+
+          </tr>
+
+        `
+      )
+      .join("");
+
+
+  if(!list.innerHTML){
+
+    list.innerHTML = `
+
+      <tr>
+
+        <td
+          colspan="6"
+          class="muted"
+        >
+
+          No milestones match
+          the filters.
+
+        </td>
+
+      </tr>
+
+    `;
+
+  }
+
+
+  list
+    .querySelectorAll(
+      "[data-edit]"
+    )
+    .forEach(
+      button => {
+
+        button.onclick =
+          () =>
+            edit(
+              Number(
+                button.dataset.edit
+              )
+            );
+
+      }
+    );
+
+
+  list
+    .querySelectorAll(
+      "[data-del]"
+    )
+    .forEach(
+      button => {
+
+        button.onclick =
+          () => {
+
+            if(
+              confirm(
+                "Delete this milestone?"
+              )
+            ){
+
+              data =
+                data.filter(
+                  x =>
+                    x.id !==
+                    Number(
+                      button.dataset.del
+                    )
+                );
+
+
+              persist();
+
+              render();
+
+            }
+
+          };
+
+      }
+    );
+
+
+  timeline(
+    items
+  );
+
+}
+
+
+/* ESCAPE HTML */
+
+function escapeHtml(
+  value
+){
+
+  return String(
+    value ?? ""
+  ).replace(
+    /[&<>"']/g,
+    character => ({
+
+      "&":"&amp;",
+      "<":"&lt;",
+      ">":"&gt;",
+      '"':"&quot;",
+      "'":"&#39;"
+
+    }[character])
+  );
+
+}
+
+
+/* ADD / SAVE */
+
+document
+  .getElementById(
+    "form"
+  )
+  .onsubmit =
+  event => {
+
+    event.preventDefault();
+
+
+    const id =
+      Number(
+        document
+          .getElementById(
+            "editId"
+          ).value
+      );
+
+
+    const milestone = {
+
+      id:
+        id ||
+        nextId++,
+
+      title:
+        document
+          .getElementById(
+            "title"
+          ).value.trim(),
+
+      date:
+        document
+          .getElementById(
+            "date"
+          ).value,
+
+      type:
+        document
+          .getElementById(
+            "type"
+          ).value,
+
+      level:
+        document
+          .getElementById(
+            "level"
+          ).value,
+
+      owner:
+        document
+          .getElementById(
+            "owner"
+          ).value.trim(),
+
+      description:
+        id
+          ? (
+              data.find(
+                x => x.id === id
+              )?.description ||
+              ""
+            )
+          : ""
+
+    };
+
+
+    if(id){
+
+      const index =
+        data.findIndex(
+          x => x.id === id
+        );
+
+
+      data[index] =
+        milestone;
+
+    }else{
+
+      data.push(
+        milestone
+      );
+
+    }
+
+
+    persist();
+
+    resetForm();
+
+    render();
+
+  };
+
+
+/* CANCEL */
+
+document
+  .getElementById(
+    "cancel"
+  )
+  .onclick =
+    resetForm;
+
+
+/* CLOSE DETAIL */
+
+document
+  .getElementById(
+    "closeDetail"
+  )
+  .onclick =
+    () => {
+
+      document
+        .getElementById(
+          "detailCard"
+        )
+        .hidden = true;
+
+    };
+
+
+/* RESET DATA */
+
+document
+  .getElementById(
+    "resetData"
+  )
+  .onclick =
+  async () => {
+
+    if(
+      confirm(
+        "Reset all local changes and restore the imported Excel data?"
+      )
+    ){
+
+      localStorage.removeItem(
+        "milestoneData"
+      );
+
+      await load();
+
+    }
+
+  };
+
+
+/* EXPORT */
+
+document
+  .getElementById(
+    "exportData"
+  )
+  .onclick =
+  () => {
+
+    const blob =
+      new Blob(
+        [
+          JSON.stringify(
+            data,
+            null,
+            2
+          )
+        ],
+        {
+          type:
+            "application/json"
+        }
+      );
+
+
+    const link =
+      document.createElement(
+        "a"
+      );
+
+
+    link.href =
+      URL.createObjectURL(
+        blob
+      );
+
+
+    link.download =
+      "milestones.json";
+
+
+    link.click();
+
+
+    URL.revokeObjectURL(
+      link.href
+    );
+
+  };
+
+
+/* TYPE SELECT */
+
+document
+  .getElementById(
+    "type"
+  )
+  .innerHTML =
+    TYPES
+      .map(
+        x =>
+          `<option>${x[0]}</option>`
+      )
+      .join("");
+
+
+/* START */
+
 load();
+
 </script>
+
 </body>
 </html>
