@@ -1,0 +1,254 @@
+[
+  {
+    "id": 1,
+    "title": "UCC Spin-out Official (SpinO)",
+    "type": "LEG",
+    "owner": "Bill",
+    "description": "Shareholder and licenses agreement signed",
+    "date": "2027-01-15",
+    "level": ""
+  },
+  {
+    "id": 2,
+    "title": "Team Joins Connect",
+    "type": "LEG",
+    "owner": "Bill",
+    "description": "Founders join CONNECT",
+    "date": "2027-02-01",
+    "level": ""
+  },
+  {
+    "id": 3,
+    "title": "Employee 1",
+    "type": "ADM",
+    "owner": "Bill",
+    "description": "First employee joins CONNECT",
+    "date": "2027-02-01",
+    "level": ""
+  },
+  {
+    "id": 4,
+    "title": "Recruitment begins",
+    "type": "ADM",
+    "owner": "Bill",
+    "description": "Connect issues first job spec",
+    "date": "2026-12-01",
+    "level": ""
+  },
+  {
+    "id": 5,
+    "title": "Business Plan 10",
+    "type": "STRAT",
+    "owner": "Bill",
+    "description": "First full business plan completed",
+    "date": "2027-11-01",
+    "level": ""
+  },
+  {
+    "id": 6,
+    "title": "Business Plan - SpinO",
+    "type": "STRAT",
+    "owner": "Bill",
+    "description": "Business plan which is based of Spin-out is completed",
+    "date": "2027-01-15",
+    "level": ""
+  },
+  {
+    "id": 7,
+    "title": "Vision doc agreed",
+    "type": "TECH",
+    "owner": "Bill",
+    "description": "",
+    "date": "2027-11-01",
+    "level": ""
+  },
+  {
+    "id": 8,
+    "title": "1st Contract",
+    "type": "BD",
+    "owner": "Bill",
+    "description": "CONNECT agrees first independent contract",
+    "date": "2027-03-01",
+    "level": ""
+  },
+  {
+    "id": 9,
+    "title": "ESA Contract - submitted",
+    "type": "BD",
+    "owner": "Eamonn",
+    "description": "",
+    "date": "",
+    "level": ""
+  },
+  {
+    "id": 10,
+    "title": "ESA Contract - decision",
+    "type": "BD",
+    "owner": "Eamonn",
+    "description": "",
+    "date": "",
+    "level": ""
+  },
+  {
+    "id": 11,
+    "title": "ESA Contract - SO",
+    "type": "LEG",
+    "owner": "Eamonn",
+    "description": "",
+    "date": "",
+    "level": ""
+  },
+  {
+    "id": 12,
+    "title": "2 page pitch doc V10",
+    "type": "STRAT",
+    "owner": "Bill",
+    "description": "",
+    "date": "",
+    "level": ""
+  },
+  {
+    "id": 13,
+    "title": "EIC - T Submitted",
+    "type": "BD",
+    "owner": "Eamonn",
+    "description": "",
+    "date": "",
+    "level": ""
+  },
+  {
+    "id": 14,
+    "title": "EIC - T Feedback",
+    "type": "BD",
+    "owner": "Eamonn",
+    "description": "",
+    "date": "",
+    "level": ""
+  },
+  {
+    "id": 15,
+    "title": "EIC - T interviews",
+    "type": "BD",
+    "owner": "Eamonn",
+    "description": "",
+    "date": "",
+    "level": ""
+  },
+  {
+    "id": 16,
+    "title": "EIC - T decision",
+    "type": "BD",
+    "owner": "Eamonn",
+    "description": "",
+    "date": "",
+    "level": ""
+  },
+  {
+    "id": 17,
+    "title": "EIC - T SO",
+    "type": "LEG",
+    "owner": "Eamonn",
+    "description": "",
+    "date": "",
+    "level": ""
+  },
+  {
+    "id": 18,
+    "title": "Spin-out negotiations begin",
+    "type": "LEG",
+    "owner": "Bill",
+    "description": "",
+    "date": "2026-10-05",
+    "level": ""
+  },
+  {
+    "id": 19,
+    "title": "Website live",
+    "type": "BD",
+    "owner": "Bill",
+    "description": "",
+    "date": "2026-10-06",
+    "level": ""
+  },
+  {
+    "id": 20,
+    "title": "Attend ECOC / Optica GEF",
+    "type": "BD",
+    "owner": "Bill",
+    "description": "",
+    "date": "2026-10-01",
+    "level": ""
+  },
+  {
+    "id": 21,
+    "title": "AdvPack Day",
+    "type": "BD",
+    "owner": "Bill",
+    "description": "",
+    "date": "2026-10-15",
+    "level": ""
+  },
+  {
+    "id": 22,
+    "title": "Investment secured",
+    "type": "STRAT",
+    "owner": "Bill",
+    "description": "",
+    "date": "2027-04-01",
+    "level": ""
+  },
+  {
+    "id": 23,
+    "title": "Patent 1 - filed",
+    "type": "TECH",
+    "owner": "Peter",
+    "description": "",
+    "date": "",
+    "level": ""
+  },
+  {
+    "id": 24,
+    "title": "Patent 2 - filed",
+    "type": "TECH",
+    "owner": "Peter",
+    "description": "",
+    "date": "",
+    "level": ""
+  },
+  {
+    "id": 25,
+    "title": "Core Tech alignment",
+    "type": "TECH",
+    "owner": "Peter",
+    "description": "Agreed and document the USP for our target application",
+    "date": "2026-10-12",
+    "level": ""
+  },
+  {
+    "id": 26,
+    "title": "Tech Roadmap agreed",
+    "type": "TECH",
+    "owner": "Peter",
+    "description": "Full tech RM with performance targets vs application",
+    "date": "2026-12-15",
+    "level": ""
+  },
+  {
+    "id": 27,
+    "title": "Silicon Catalyst Application",
+    "type": "STRAT",
+    "owner": "Bill",
+    "description": "",
+    "date": "",
+    "level": ""
+  },
+  {
+    "id": 28,
+    "title": "Operations Strategy agreed",
+    "type": "OPS",
+    "owner": "Eamonn",
+    "description": "",
+    "date": "",
+    "level": ""
+  }
+]
