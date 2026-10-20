@@ -2,253 +2,351 @@
   {
     "id": 1,
     "title": "UCC Spin-out Official (SpinO)",
-    "type": "LEG",
-    "owner": "Bill",
-    "description": "Shareholder and licenses agreement signed",
     "date": "2027-01-15",
-    "level": ""
+    "category": "Deadlines",
+    "type": "LEG",
+    "level": "",
+    "owner": "Bill",
+    "description": "Shareholder and licenses agreement signed"
   },
   {
     "id": 2,
-    "title": "Team Joins Connect",
-    "type": "LEG",
-    "owner": "Bill",
-    "description": "Founders join CONNECT",
+    "title": "BH/EON Joins Connect",
     "date": "2027-02-01",
-    "level": ""
+    "category": "Milestones",
+    "type": "LEG",
+    "level": "2",
+    "owner": "Bill",
+    "description": "Founders join CONNECT"
   },
   {
     "id": 3,
     "title": "Employee 1",
-    "type": "ADM",
-    "owner": "Bill",
-    "description": "First employee joins CONNECT",
     "date": "2027-02-01",
-    "level": ""
+    "category": "Milestones",
+    "type": "ADM",
+    "level": "2",
+    "owner": "Bill",
+    "description": "First employee joins CONNECT"
   },
   {
     "id": 4,
     "title": "Recruitment begins",
-    "type": "ADM",
-    "owner": "Bill",
-    "description": "Connect issues first job spec",
     "date": "2026-12-01",
-    "level": ""
+    "category": "Milestones",
+    "type": "ADM",
+    "level": "2",
+    "owner": "Bill",
+    "description": "Connect issues first job spec"
   },
   {
     "id": 5,
     "title": "Business Plan 10",
+    "date": "2027-11-15",
+    "category": "Milestones",
     "type": "STRAT",
+    "level": "1",
     "owner": "Bill",
-    "description": "First full business plan completed",
-    "date": "2027-11-01",
-    "level": ""
+    "description": "First full business plan completed"
   },
   {
     "id": 6,
     "title": "Business Plan - SpinO",
-    "type": "STRAT",
-    "owner": "Bill",
-    "description": "Business plan which is based of Spin-out is completed",
     "date": "2027-01-15",
-    "level": ""
+    "category": "Deadlines",
+    "type": "STRAT",
+    "level": "",
+    "owner": "Bill",
+    "description": "Business plan which is based of Spin-out is completed"
   },
   {
     "id": 7,
     "title": "Vision doc agreed",
-    "type": "TECH",
-    "owner": "Bill",
-    "description": "",
     "date": "2027-11-01",
-    "level": ""
+    "category": "Milestones",
+    "type": "TECH",
+    "level": "0",
+    "owner": "Bill",
+    "description": ""
   },
   {
     "id": 8,
     "title": "1st Contract",
-    "type": "BD",
-    "owner": "Bill",
-    "description": "CONNECT agrees first independent contract",
     "date": "2027-03-01",
-    "level": ""
+    "category": "Milestones",
+    "type": "BD",
+    "level": "2",
+    "owner": "Bill",
+    "description": "CONNECT agrees first independent contract"
   },
   {
     "id": 9,
     "title": "ESA Contract - submitted",
+    "date": "2026-10-23",
+    "category": "Deadlines",
     "type": "BD",
+    "level": "",
     "owner": "Eamonn",
-    "description": "",
-    "date": "",
-    "level": ""
+    "description": ""
   },
   {
     "id": 10,
     "title": "ESA Contract - decision",
+    "date": "2026-12-19",
+    "category": "Milestones",
     "type": "BD",
+    "level": "2",
     "owner": "Eamonn",
-    "description": "",
-    "date": "",
-    "level": ""
+    "description": ""
   },
   {
     "id": 11,
     "title": "ESA Contract - SO",
+    "date": "2027-02-01",
+    "category": "Milestones",
     "type": "LEG",
+    "level": "2",
     "owner": "Eamonn",
-    "description": "",
-    "date": "",
-    "level": ""
+    "description": ""
   },
   {
     "id": 12,
-    "title": "2 page pitch doc V10",
-    "type": "STRAT",
-    "owner": "Bill",
-    "description": "",
-    "date": "",
-    "level": ""
+    "title": "EIC - T Submitted",
+    "date": "2026-09-16",
+    "category": "Deadlines",
+    "type": "BD",
+    "level": "",
+    "owner": "Eamonn",
+    "description": ""
   },
   {
     "id": 13,
-    "title": "EIC - T Submitted",
+    "title": "EIC - T Feedback",
+    "date": "2026-11-13",
+    "category": "Milestones",
     "type": "BD",
+    "level": "2",
     "owner": "Eamonn",
-    "description": "",
-    "date": "",
-    "level": ""
+    "description": ""
   },
   {
     "id": 14,
-    "title": "EIC - T Feedback",
+    "title": "EIC - T interviews",
+    "date": "2026-12-19",
+    "category": "Milestones",
     "type": "BD",
+    "level": "2",
     "owner": "Eamonn",
-    "description": "",
-    "date": "",
-    "level": ""
+    "description": ""
   },
   {
     "id": 15,
-    "title": "EIC - T interviews",
+    "title": "EIC - T decision",
+    "date": "2027-02-01",
+    "category": "Milestones",
     "type": "BD",
+    "level": "2",
     "owner": "Eamonn",
-    "description": "",
-    "date": "",
-    "level": ""
+    "description": ""
   },
   {
     "id": 16,
-    "title": "EIC - T decision",
-    "type": "BD",
+    "title": "EIC - T SO",
+    "date": "2027-04-01",
+    "category": "Milestones",
+    "type": "LEG",
+    "level": "2",
     "owner": "Eamonn",
-    "description": "",
-    "date": "",
-    "level": ""
+    "description": ""
   },
   {
     "id": 17,
-    "title": "EIC - T SO",
+    "title": "Spin-out negotiations begin",
+    "date": "2026-10-05",
+    "category": "Milestones",
     "type": "LEG",
-    "owner": "Eamonn",
-    "description": "",
-    "date": "",
-    "level": ""
+    "level": "1",
+    "owner": "Bill",
+    "description": ""
   },
   {
     "id": 18,
-    "title": "Spin-out negotiations begin",
-    "type": "LEG",
+    "title": "Website live",
+    "date": "2026-10-06",
+    "category": "Milestones",
+    "type": "BD",
+    "level": "2",
     "owner": "Bill",
-    "description": "",
-    "date": "2026-10-05",
-    "level": ""
+    "description": ""
   },
   {
     "id": 19,
-    "title": "Website live",
+    "title": "Attend ECOC / Optica GEF",
+    "date": "2026-10-01",
+    "category": "Milestones",
     "type": "BD",
+    "level": "2",
     "owner": "Bill",
-    "description": "",
-    "date": "2026-10-06",
-    "level": ""
+    "description": ""
   },
   {
     "id": 20,
-    "title": "Attend ECOC / Optica GEF",
+    "title": "AdvPack Day",
+    "date": "2026-10-15",
+    "category": "Milestones",
     "type": "BD",
+    "level": "2",
     "owner": "Bill",
-    "description": "",
-    "date": "2026-10-01",
-    "level": ""
+    "description": ""
   },
   {
     "id": 21,
-    "title": "AdvPack Day",
-    "type": "BD",
+    "title": "Investment secured",
+    "date": "2027-05-01",
+    "category": "Milestones",
+    "type": "STRAT",
+    "level": "1",
     "owner": "Bill",
-    "description": "",
-    "date": "2026-10-15",
-    "level": ""
+    "description": ""
   },
   {
     "id": 22,
-    "title": "Investment secured",
-    "type": "STRAT",
-    "owner": "Bill",
-    "description": "",
-    "date": "2027-04-01",
-    "level": ""
+    "title": "Patent 1 (GlassB) - filed",
+    "date": "2026-09-25",
+    "category": "Milestones",
+    "type": "TECH",
+    "level": "1",
+    "owner": "Peter",
+    "description": ""
   },
   {
     "id": 23,
-    "title": "Patent 1 - filed",
+    "title": "Patent 2 (G-G) - filed",
+    "date": "2026-11-20",
+    "category": "Milestones",
     "type": "TECH",
+    "level": "1",
     "owner": "Peter",
-    "description": "",
-    "date": "",
-    "level": ""
+    "description": ""
   },
   {
     "id": 24,
-    "title": "Patent 2 - filed",
+    "title": "Core Tech alignment",
+    "date": "2026-10-30",
+    "category": "Milestones",
     "type": "TECH",
+    "level": "0",
     "owner": "Peter",
-    "description": "",
-    "date": "",
-    "level": ""
+    "description": "Agreed and document the USP for our target application"
   },
   {
     "id": 25,
-    "title": "Core Tech alignment",
+    "title": "Competitive Analysis Complete",
+    "date": "2026-11-30",
+    "category": "Milestones",
     "type": "TECH",
+    "level": "0",
     "owner": "Peter",
-    "description": "Agreed and document the USP for our target application",
-    "date": "2026-10-12",
-    "level": ""
+    "description": ""
   },
   {
     "id": 26,
     "title": "Tech Roadmap agreed",
-    "type": "TECH",
-    "owner": "Peter",
-    "description": "Full tech RM with performance targets vs application",
     "date": "2026-12-15",
-    "level": ""
+    "category": "Milestones",
+    "type": "TECH",
+    "level": "1",
+    "owner": "Peter",
+    "description": "Full tech RM with performance targets vs application"
   },
   {
     "id": 27,
     "title": "Silicon Catalyst Application",
+    "date": "2027-02-01",
+    "category": "Deadlines",
     "type": "STRAT",
+    "level": "",
     "owner": "Bill",
-    "description": "",
-    "date": "",
-    "level": ""
+    "description": ""
   },
   {
     "id": 28,
     "title": "Operations Strategy agreed",
+    "date": "2027-11-15",
+    "category": "Milestones",
     "type": "OPS",
+    "level": "0",
     "owner": "Eamonn",
-    "description": "",
+    "description": ""
+  },
+  {
+    "id": 29,
+    "title": "Demo Build - X",
+    "date": "2026-11-27",
+    "category": "Milestones",
+    "type": "OPS",
+    "level": "2",
+    "owner": "Eamonn",
+    "description": ""
+  },
+  {
+    "id": 30,
+    "title": "Demo Build - Y",
+    "date": "2026-12-25",
+    "category": "Milestones",
+    "type": "OPS",
+    "level": "2",
+    "owner": "Eamonn",
+    "description": ""
+  },
+  {
+    "id": 31,
+    "title": "Demo Build - Z",
+    "date": "2026-12-25",
+    "category": "Milestones",
+    "type": "OPS",
+    "level": "2",
+    "owner": "Eamonn",
+    "description": ""
+  },
+  {
+    "id": 32,
+    "title": "Demo strategy agreed",
+    "date": "2026-10-24",
+    "category": "Milestones",
+    "type": "OPS",
+    "level": "1",
+    "owner": "Eamonn",
+    "description": ""
+  },
+  {
+    "id": 33,
+    "title": "Office space",
     "date": "",
-    "level": ""
+    "category": "Milestones",
+    "type": "OPS",
+    "level": "1",
+    "owner": "",
+    "description": ""
+  },
+  {
+    "id": 34,
+    "title": "Chip Scale Article",
+    "date": "2027-03-16",
+    "category": "Milestones",
+    "type": "TECH",
+    "level": "2",
+    "owner": "Peter",
+    "description": ""
+  },
+  {
+    "id": 35,
+    "title": "Business scenarios",
+    "date": "",
+    "category": "Milestones",
+    "type": "BUS",
+    "level": "0",
+    "owner": "Bill",
+    "description": "Widget, pre-OSAT, no VC / cashflow"
   }
 ]
