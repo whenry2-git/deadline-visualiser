@@ -1,35 +1,23 @@
-# Milestone Timeline — GitHub Pages
+# Milestone Visualiser — V20
 
-## What this version contains
+## Files
+- `index.html` — web visualiser
+- `milestones.json` — milestones and deadlines imported from `261006_STRATEGY_V01(Deadlines)(1).xlsx`
 
-- 28 milestones imported from the supplied Excel workbook.
-- Six existing milestone types: LEG, ADM, STRAT, TECH, BD, OPS.
-- Three importance levels: High, Medium, Low, plus Unassigned for imported rows.
-- Add, edit and delete milestones.
-- Click timeline milestones for details.
-- Filter by multiple types and importance levels.
-- Undated milestones remain in the list but are not plotted on the date timeline.
-- Export the current data as JSON.
-- Reset to the original imported dataset.
+## Publish on GitHub Pages
+1. Upload `index.html` and `milestones.json` to the root of your GitHub repository, replacing the existing files.
+2. Open **Settings → Pages**.
+3. Choose **Deploy from a branch**, select your `main` branch and `/ (root)`, then save.
+4. Open the GitHub Pages URL shown in Settings → Pages.
 
-## GitHub Pages
+## Data mapping
+- Excel `Type` column containing `M` or `D` maps to category `Milestones` or `Deadlines`.
+- The second `Type` column maps to the discipline code, including `BUS`.
+- Importance levels `0`, `1`, and `2` are retained for milestones.
+- Deadline importance is blank because the visualiser applies importance levels to milestones only.
+- Blank Excel dates remain blank.
+- The visualiser stores edits in the current browser's localStorage. Edits are not automatically shared between browsers/devices.
 
-1. Create a new GitHub repository.
-2. Upload `index.html` and `milestones.json` to the repository root.
-3. In GitHub, open **Settings → Pages**.
-4. Select **Deploy from a branch**, choose the main branch and `/ (root)`.
-5. Save. GitHub will provide the public Pages URL.
 
-## Important: persistence
-
-This first GitHub-ready version uses browser `localStorage` for edits. That means:
-- edits persist on the same browser/device;
-- different users/devices do not share edits;
-- the original 28 milestones are loaded from `milestones.json`;
-- `Export JSON` can be used to save the current state.
-
-This is intentional because GitHub Pages is a static hosting service and cannot itself act as a shared writable database.
-
-## Next database step
-
-The UI is separated from the initial data file so the next version can connect to a shared backend such as Supabase/Firebase/a small API. The add/edit/delete functions can then be changed from local storage to database calls without redesigning the visualiser.
+## V20 filter/data loading fix
+V20 uses a separate browser storage key (`milestoneDataV20`) so saved data from older versions cannot hide the newly imported Deadlines and importance levels. Use **Reset imported data** to reload the Excel import.

@@ -51,10 +51,10 @@ const color=t=>TYPES.find(x=>x[0]===t)?.[1]||"var(--blue)";
 const fmt=d=>d?new Intl.DateTimeFormat("en-IE",{day:"numeric",month:"short",year:"numeric",timeZone:"UTC"}).format(new Date(d+"T00:00:00Z")):"Undated";
 let data=[], activeTypes=new Set(TYPES.map(x=>x[0])), activeLevels=new Set(LEVELS), activeCategories=new Set(CATEGORIES), nextId=29;
 
-async function load(){try{const saved=localStorage.getItem("milestoneData");if(saved)data=JSON.parse(saved);else{const r=await fetch("milestones.json");data=await r.json()}}catch(e){data=[]}
+async function load(){try{const saved=localStorage.getItem("milestoneDataV20");if(saved)data=JSON.parse(saved);else{const r=await fetch("milestones.json");data=await r.json()}}catch(e){data=[]}
 data=data.map(x=>({...x,category:CATEGORIES.includes(x.category)?x.category:"Milestones",level:({"High":"2","Medium":"1","Low":"0"}[x.level]??(x.level===0||x.level===1||x.level===2?String(x.level):(x.level===""||x.level==null?"":String(x.level))))}));
 nextId=Math.max(0,...data.map(x=>x.id))+1;render()}
-function persist(){localStorage.setItem("milestoneData",JSON.stringify(data))}
+function persist(){localStorage.setItem("milestoneDataV20",JSON.stringify(data))}
 function filters(){
  let a=document.getElementById("categoryFilters");a.innerHTML="";
  CATEGORIES.forEach(c=>{let l=document.createElement("label"),i=document.createElement("input");i.type="checkbox";i.checked=activeCategories.has(c);i.onchange=()=>{i.checked?activeCategories.add(c):activeCategories.delete(c);render()};l.append(i,document.createTextNode(c));a.appendChild(l)});
@@ -72,7 +72,7 @@ function render(){filters();let items=shown();document.getElementById("summary")
 function escapeHtml(s){return String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
 document.getElementById("form").onsubmit=e=>{e.preventDefault();let id=Number(document.getElementById("editId").value);let obj={id:id||nextId++,title:title.value.trim(),date:date.value,category:category.value,type:type.value,level:category.value==="Deadlines"?"":level.value,owner:owner.value.trim(),description:id?(data.find(x=>x.id===id)?.description||""):""};if(id){let i=data.findIndex(x=>x.id===id);data[i]=obj}else data.push(obj);persist();resetForm();render()};
 document.getElementById("cancel").onclick=resetForm;document.getElementById("closeDetail").onclick=()=>document.getElementById("detailCard").hidden=true;
-document.getElementById("resetData").onclick=async()=>{if(confirm("Reset all local changes and restore the imported Excel data?")){localStorage.removeItem("milestoneData");await load()}};
+document.getElementById("resetData").onclick=async()=>{if(confirm("Reset all local changes and restore the imported Excel data?")){localStorage.removeItem("milestoneDataV20");localStorage.removeItem("milestoneData");await load()}};
 document.getElementById("exportData").onclick=()=>{let blob=new Blob([JSON.stringify(data,null,2)],{type:"application/json"}),a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="milestones.json";a.click();URL.revokeObjectURL(a.href)};
 document.getElementById("type").innerHTML=TYPES.map(x=>`<option>${x[0]}</option>`).join("");
 load();
